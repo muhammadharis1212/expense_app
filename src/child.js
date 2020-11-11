@@ -2,6 +2,11 @@ import React from 'react';
 
 function Child()
 {
+    let transaction = [
+        {amount: 500, desc: "Cash"},
+        {amount: -40, desc: "Book"},
+        {amount: -200, desc: "Camera"}
+    ]
     return(
 
         <div className='container'>
@@ -16,18 +21,16 @@ function Child()
             <h3>History</h3>
             <hr/>
             <ul className='transaction-list'>
-                <li>
-                    <span>Cash</span>
-                    <span>+200</span>
-                </li>
-                <li>
-                    <span>Cash</span>
-                    <span>+200</span>
-                </li>
-                <li>
-                    <span>Cash</span>
-                    <span>+200</span>
-                </li>
+                {transaction.map((transactionObject, index)=>{
+                    return(
+                        <li>
+                            <span>{transactionObject.desc}</span>
+                            <span>{transactionObject.amount}</span>
+                        </li>
+
+                    );
+                })}
+                
             </ul>
             <h3>Add New Transaction</h3>
             <hr/>
